@@ -304,7 +304,6 @@ namespace linkedLists.Single
                 Node parent = getPreviousNode(member1.data);
                 Node member2 = node.next;
 
-                //saurabh points to neha.next
                 member1.next = member2.next;
                 member2.next = member1;
 
