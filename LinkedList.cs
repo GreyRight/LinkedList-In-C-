@@ -290,5 +290,33 @@ namespace linkedLists.Single
             return current;
         }
         #endregion
+        
+        
+        public void SwapEveryPair(Node node)
+        {
+            if (this.head == null || this.head.next == null)
+            {
+                throw new Exception("Linked list is empty");
+            }
+            else if (node != null && node.next != null)
+            {
+                Node member1 = node;
+                Node parent = getPreviousNode(member1.data);
+                Node member2 = node.next;
+
+                //saurabh points to neha.next
+                member1.next = member2.next;
+                member2.next = member1;
+
+                //upper boundary value cases
+                if (parent != null)
+                    parent.next = member2;
+                else
+                    this.head = member2;
+
+                if (member1.next != null)
+                    SwapEveryPair(member1.next);
+            }
+        }
     }
 }
